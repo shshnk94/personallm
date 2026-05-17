@@ -1,0 +1,268 @@
+TopicExtractor: gensim Mallet wrapper unavailable, using Mallet directly.
+
+-----
+DLATK Interface Initiated: 2026-05-17 18:21:30
+-----
+Loading Outcomes and Getting Groups for: {'PSStot'}
+Loading Outcomes and Getting Groups for: {'PSStot'}
+
+
+[number of groups: 1175]
+
+= PSStot =
+----------
+  (feature group: 0)
+   [Train size: 1175 ]
+ X[0]: (N, features): (1175, 1024)
+  [Applying StandardScaler to X[0]: StandardScaler()]
+[COMBINED FEATS (from multiX)] Combined size: (1175, 1024)
+[COMBINED FEATS: Training regression model: ridge1000]
+model: Ridge(alpha=1000) 
+
+[TRAINING COMPLETE]
+
+[number of groups: 1175 (10 Folds)]
+
+
+|COMBO: ()|
+===========
+
+= PSStot (w/ lang.)=
+--------------------
+Fold 0 
+   (feature group: 0): [Initial size: 1175]
+ [Train size: 1058    Test size: 117]
+ X[0]: (N, features): (1058, 1024)
+  [Applying StandardScaler to X[0]: StandardScaler()]
+[COMBINED FEATS (from multiX)] Combined size: (1058, 1024)
+[COMBINED FEATS: Training regression model: ridge1000]
+model: Ridge(alpha=1000) 
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+[PREDICT] combined X shape: (117, 1024)
+[PREDICT] regressor: Ridge(alpha=1000)
+settings:  [('alpha', 1000), ('fit_intercept', True), ('copy_X', True), ('max_iter', None), ('tol', 0.0001), ('positive', False), ('random_state', None), ('n_features_in_', 1024), ('n_iter_', None), ('intercept_', 16.921550094517958)]
+  *FOLD R^2: 0.3884 (MSE: 57.3899; MAE: 6.0413; mean train mae: 8.2309)
+Fold 1 
+   (feature group: 0): [Initial size: 1175]
+ [Train size: 1058    Test size: 117]
+ X[0]: (N, features): (1058, 1024)
+  [Applying StandardScaler to X[0]: StandardScaler()]
+[COMBINED FEATS (from multiX)] Combined size: (1058, 1024)
+[COMBINED FEATS: Training regression model: ridge1000]
+model: Ridge(alpha=1000) 
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+[PREDICT] combined X shape: (117, 1024)
+[PREDICT] regressor: Ridge(alpha=1000)
+settings:  [('alpha', 1000), ('fit_intercept', True), ('copy_X', True), ('max_iter', None), ('tol', 0.0001), ('positive', False), ('random_state', None), ('n_features_in_', 1024), ('n_iter_', None), ('intercept_', 17.1531190926276)]
+  *FOLD R^2: 0.4953 (MSE: 38.9079; MAE: 5.0991; mean train mae: 7.4273)
+Fold 2 
+   (feature group: 0): [Initial size: 1175]
+ [Train size: 1058    Test size: 117]
+ X[0]: (N, features): (1058, 1024)
+  [Applying StandardScaler to X[0]: StandardScaler()]
+[COMBINED FEATS (from multiX)] Combined size: (1058, 1024)
+[COMBINED FEATS: Training regression model: ridge1000]
+model: Ridge(alpha=1000) 
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+[PREDICT] combined X shape: (117, 1024)
+[PREDICT] regressor: Ridge(alpha=1000)
+settings:  [('alpha', 1000), ('fit_intercept', True), ('copy_X', True), ('max_iter', None), ('tol', 0.0001), ('positive', False), ('random_state', None), ('n_features_in_', 1024), ('n_iter_', None), ('intercept_', 17.13610586011342)]
+  *FOLD R^2: 0.5485 (MSE: 34.8881; MAE: 4.6048; mean train mae: 7.2498)
+Fold 3 
+   (feature group: 0): [Initial size: 1175]
+ [Train size: 1058    Test size: 117]
+ X[0]: (N, features): (1058, 1024)
+  [Applying StandardScaler to X[0]: StandardScaler()]
+[COMBINED FEATS (from multiX)] Combined size: (1058, 1024)
+[COMBINED FEATS: Training regression model: ridge1000]
+model: Ridge(alpha=1000) 
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+[PREDICT] combined X shape: (117, 1024)
+[PREDICT] regressor: Ridge(alpha=1000)
+settings:  [('alpha', 1000), ('fit_intercept', True), ('copy_X', True), ('max_iter', None), ('tol', 0.0001), ('positive', False), ('random_state', None), ('n_features_in_', 1024), ('n_iter_', None), ('intercept_', 16.99905482041588)]
+  *FOLD R^2: 0.5015 (MSE: 41.0564; MAE: 5.0444; mean train mae: 7.7265)
+Fold 4 
+   (feature group: 0): [Initial size: 1175]
+ [Train size: 1058    Test size: 117]
+ X[0]: (N, features): (1058, 1024)
+  [Applying StandardScaler to X[0]: StandardScaler()]
+[COMBINED FEATS (from multiX)] Combined size: (1058, 1024)
+[COMBINED FEATS: Training regression model: ridge1000]
+model: Ridge(alpha=1000) 
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+[PREDICT] combined X shape: (117, 1024)
+[PREDICT] regressor: Ridge(alpha=1000)
+settings:  [('alpha', 1000), ('fit_intercept', True), ('copy_X', True), ('max_iter', None), ('tol', 0.0001), ('positive', False), ('random_state', None), ('n_features_in_', 1024), ('n_iter_', None), ('intercept_', 16.947069943289225)]
+  *FOLD R^2: 0.4073 (MSE: 40.4210; MAE: 5.0664; mean train mae: 6.8151)
+Fold 5 
+   (feature group: 0): [Initial size: 1175]
+ [Train size: 1058    Test size: 117]
+ X[0]: (N, features): (1058, 1024)
+  [Applying StandardScaler to X[0]: StandardScaler()]
+[COMBINED FEATS (from multiX)] Combined size: (1058, 1024)
+[COMBINED FEATS: Training regression model: ridge1000]
+model: Ridge(alpha=1000) 
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+[PREDICT] combined X shape: (117, 1024)
+[PREDICT] regressor: Ridge(alpha=1000)
+settings:  [('alpha', 1000), ('fit_intercept', True), ('copy_X', True), ('max_iter', None), ('tol', 0.0001), ('positive', False), ('random_state', None), ('n_features_in_', 1024), ('n_iter_', None), ('intercept_', 17.054820415879018)]
+  *FOLD R^2: 0.4893 (MSE: 37.3762; MAE: 4.8940; mean train mae: 7.1058)
+Fold 6 
+   (feature group: 0): [Initial size: 1175]
+ [Train size: 1058    Test size: 117]
+ X[0]: (N, features): (1058, 1024)
+  [Applying StandardScaler to X[0]: StandardScaler()]
+[COMBINED FEATS (from multiX)] Combined size: (1058, 1024)
+[COMBINED FEATS: Training regression model: ridge1000]
+model: Ridge(alpha=1000) 
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+[PREDICT] combined X shape: (117, 1024)
+[PREDICT] regressor: Ridge(alpha=1000)
+settings:  [('alpha', 1000), ('fit_intercept', True), ('copy_X', True), ('max_iter', None), ('tol', 0.0001), ('positive', False), ('random_state', None), ('n_features_in_', 1024), ('n_iter_', None), ('intercept_', 17.035916824196597)]
+  *FOLD R^2: 0.4699 (MSE: 51.9303; MAE: 5.7561; mean train mae: 8.2683)
+Fold 7 
+   (feature group: 0): [Initial size: 1175]
+ [Train size: 1058    Test size: 117]
+ X[0]: (N, features): (1058, 1024)
+  [Applying StandardScaler to X[0]: StandardScaler()]
+[COMBINED FEATS (from multiX)] Combined size: (1058, 1024)
+[COMBINED FEATS: Training regression model: ridge1000]
+model: Ridge(alpha=1000) 
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+[PREDICT] combined X shape: (117, 1024)
+[PREDICT] regressor: Ridge(alpha=1000)
+settings:  [('alpha', 1000), ('fit_intercept', True), ('copy_X', True), ('max_iter', None), ('tol', 0.0001), ('positive', False), ('random_state', None), ('n_features_in_', 1024), ('n_iter_', None), ('intercept_', 17.050094517958414)]
+  *FOLD R^2: 0.3758 (MSE: 46.3250; MAE: 5.5016; mean train mae: 7.1150)
+Fold 8 
+   (feature group: 0): [Initial size: 1175]
+ [Train size: 1058    Test size: 117]
+ X[0]: (N, features): (1058, 1024)
+  [Applying StandardScaler to X[0]: StandardScaler()]
+[COMBINED FEATS (from multiX)] Combined size: (1058, 1024)
+[COMBINED FEATS: Training regression model: ridge1000]
+model: Ridge(alpha=1000) 
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+[PREDICT] combined X shape: (117, 1024)
+[PREDICT] regressor: Ridge(alpha=1000)
+settings:  [('alpha', 1000), ('fit_intercept', True), ('copy_X', True), ('max_iter', None), ('tol', 0.0001), ('positive', False), ('random_state', None), ('n_features_in_', 1024), ('n_iter_', None), ('intercept_', 17.120037807183365)]
+  *FOLD R^2: 0.5228 (MSE: 52.1032; MAE: 5.8665; mean train mae: 9.1162)
+Fold 9 
+   (feature group: 0): [Initial size: 1175]
+ [Train size: 1053    Test size: 122]
+ X[0]: (N, features): (1053, 1024)
+  [Applying StandardScaler to X[0]: StandardScaler()]
+[COMBINED FEATS (from multiX)] Combined size: (1053, 1024)
+[COMBINED FEATS: Training regression model: ridge1000]
+model: Ridge(alpha=1000) 
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+[PREDICT] combined X shape: (122, 1024)
+[PREDICT] regressor: Ridge(alpha=1000)
+settings:  [('alpha', 1000), ('fit_intercept', True), ('copy_X', True), ('max_iter', None), ('tol', 0.0001), ('positive', False), ('random_state', None), ('n_features_in_', 1024), ('n_iter_', None), ('intercept_', 16.947768281101613)]
+  *FOLD R^2: 0.3728 (MSE: 52.3408; MAE: 5.8684; mean train mae: 7.7731)-------
+Settings:
+
+Database - ssubrahmanya
+Corpus - lead_en_train
+Group ID - message_id
+Feature table(s) - feat$roberta_la_meL23con$lead_en_train$message_id
+Outcome table - lead_en_train
+Outcome(s) - PSStot
+-------
+Interface Runtime: 20.26 seconds
+DLATK exits with success! A good day indeed  ¯\\_(ツ)_/¯.
+
+*Overall R^2:          0.4618
+*Overall FOLDS R^2:    0.4572 (+- 0.0195)
+*R (sqrt R^2):         0.6795
+*Pearson r:            0.6799 (p = 0.00000)
+*Folds Pearson r:      0.6795 (p = 0.00000)
+*Spearman rho:         0.6863 (p = 0.00000)
+*Mean Squared Error:   45.3040
+*Mean Absolute Error:  5.3764
+*Train_Mean MAE:       5.3961
+
+[TEST COMPLETE]
+
+{'PSStot': {(): {1: {'N': 1175,
+                     'R': 0.6795332302434766,
+                     'R2': 0.4617654110051337,
+                     'R2_folds': 0.4571535310455282,
+                     'mae': 5.376360268288104,
+                     'mae_folds': 5.374257433882663,
+                     'mse': 45.30397325978603,
+                     'mse_folds': 45.27390119855758,
+                     'num_features': 1024,
+                     'r': 0.6799443982257642,
+                     'r_folds': 0.6795334515754948,
+                     'r_p': 3.05123860633678e-160,
+                     'r_p_folds': 1.7056421059060507e-14,
+                     'rho': 0.6863421640054376,
+                     'rho_folds': 0.6833889825764289,
+                     'rho_p': 2.0203349387051434e-164,
+                     'rho_p_folds': 5.1369962299131184e-14,
+                     'se_R2_folds': 0.019548263507832522,
+                     'se_mae_folds': 0.1481692188764402,
+                     'se_mse_folds': 2.3257109830871383,
+                     'se_r_folds': 0.013983806841644505,
+                     'se_r_p_folds': 8.211142008302518e-15,
+                     'se_rho_folds': 0.015776689332027038,
+                     'se_rho_p_folds': 4.051233142375813e-14,
+                     'se_train_mean_mae_folds': 0.20902336705520855,
+                     'test_size': 122,
+                     'train_mean_mae': 5.396066349401052,
+                     'train_mean_mae_folds': 7.682809103212587,
+                     'train_size': 1053,
+                     '{modelFS_desc}': 'None',
+                     '{model_desc}': 'Ridge(alpha=1000)'}}}}
+[Saving results/genText_PSStot_roberta_la_L23_ridge1000.pkl]
+TopicExtractor: gensim Mallet wrapper unavailable, using Mallet directly.
+
+-----
+DLATK Interface Initiated: 2026-05-17 18:21:54
+-----
+Loading Outcomes and Getting Groups for: {'PSStot'}
+Loading Outcomes and Getting Groups for: {'PSStot'}
+SQL QUERY: DROP TABLE IF EXISTS feat$p_ridg_PSStot_pred$lead_en_train$message_id
+SQL QUERY: CREATE TABLE feat$p_ridg_PSStot_pred$lead_en_train$message_id ( id BIGINT(16) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, group_id bigint(20), feat VARCHAR(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin, value DOUBLE, group_norm DOUBLE, KEY `correl_field` (`group_id`), KEY `feature` (`feat`)) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin ENGINE=MYISAM
+-------
+Settings:
+
+Database - ssubrahmanya
+Corpus - lead_en_train
+Group ID - message_id
+Feature table(s) - feat$roberta_la_meL23con$lead_en_train$message_id
+Outcome table - lead_en_train
+Outcome(s) - PSStot
+-------
+Interface Runtime: 4.98 seconds
+DLATK exits with success! A good day indeed  ¯\\_(ツ)_/¯.
+
+
+[Loading results/genText_PSStot_roberta_la_L23_ridge1000.pkl] True
+Outcomes in loaded model: ['PSStot']
+len(chunk) == len(groups): True
+[number of groups: 1175]
+ [Aligning current X with training X: feature group: 0]
+  Features Aligned: 1024
+ Groups in featureTable: 1175 groups that have outcomes: 1175
+
+= PSStot =
+----------
+  (feature group: 0)
+   [Test size: 1175 ]
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+[PREDICT] combined X shape: (1175, 1024)
+[PREDICT] regressor: Ridge(alpha=1000)
+settings:  [('alpha', 1000), ('fit_intercept', True), ('copy_X', True), ('max_iter', None), ('tol', 0.0001), ('positive', False), ('random_state', None), ('n_features_in_', 1024), ('n_iter_', None), ('intercept_', 17.036595744680852)]
+[Done. Evaluation:]
+*R^2 (coefficient of determination): 0.6587
+*R (sqrt R^2):                       0.8116
+*Pearson r:                          0.8187 (0.00000)
+*Spearman rho:                       0.8214 (0.00000)
+*Mean Squared Error:                 28.7287
+*Mean Absolute Error:                4.2755
+[Prediction Complete]
+ Total Predicted: 1175
+query: SELECT column_type FROM information_schema.columns WHERE table_schema='ssubrahmanya' AND table_name='lead_en_train' AND column_name='message_id'
+[Inserting Predictions as Feature values for feature: PSStot]
+   1175 feature rows written
