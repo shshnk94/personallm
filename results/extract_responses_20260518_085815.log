@@ -1,0 +1,94 @@
+=== 2026-05-18T08:58:15-04:00 extract phq9 on responses_phq9 ===
+TopicExtractor: gensim Mallet wrapper unavailable, using Mallet directly.
+
+-----
+DLATK Interface Initiated: 2026-05-18 12:58:20
+-----
+WARNING: new version of BERT and transformer models starts at layer 1 rather than layer 0. Layer 0 is now the input embedding. For example, if you were using layer 10 for the second to last layer of bert-base that is now considered layer 11.
+WARNING: run --add_sent_tokenized on the message table to avoid tokenizing it every time you generate embeddings
+/chronos_data/ssubrahmanya/personallm/.venv/lib/python3.12/site-packages/transformers/utils/hub.py:127: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/chronos_data/ssubrahmanya/personallm/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Done.
+SQL QUERY: DROP TABLE IF EXISTS feat$roberta_la_meL23con$responses_phq9$message_id
+SQL QUERY: CREATE TABLE feat$roberta_la_meL23con$responses_phq9$message_id ( id BIGINT(16) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, group_id bigint(20), feat VARCHAR(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin, value DOUBLE, group_norm DOUBLE, KEY `correl_field` (`group_id`), KEY `feature` (`feat`)) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin ENGINE=MYISAM
+finding messages for 392 'message_id's
+SQL QUERY: ALTER TABLE feat$roberta_la_meL23con$responses_phq9$message_id DISABLE KEYS
+Done Reading / Inserting.
+Adding Keys (if goes to keycache, then decrease MAX_TO_DISABLE_KEYS or run myisamchk -n).
+SQL QUERY: ALTER TABLE feat$roberta_la_meL23con$responses_phq9$message_id ENABLE KEYS
+Done
+
+-------
+Settings:
+
+Database - ssubrahmanya
+Corpus - responses_phq9
+Group ID - message_id
+Feature table(s) - feat$roberta_la_meL23con$responses_phq9$message_id
+-------
+Interface Runtime: 215.55 seconds
+DLATK exits with success! A good day indeed  ¯\\_(ツ)_/¯.
+
+
+query: SELECT column_type FROM information_schema.columns WHERE table_schema='ssubrahmanya' AND table_name='responses_phq9' AND column_name='message_id'
+TopicExtractor: gensim Mallet wrapper unavailable, using Mallet directly.
+
+-----
+DLATK Interface Initiated: 2026-05-18 13:02:01
+-----
+Loading Outcomes and Getting Groups for: {'phq9'}
+Loading Outcomes and Getting Groups for: {'phq9'}
+
+
+[Loading results/genText_phq9_roberta_la_L23_ridge1000.pkl] True
+Outcomes in loaded model: ['phq9']
+len(chunk) == len(groups): True
+[number of groups: 0]
+ [Aligning current X with training X: feature group: 0]
+  Features Aligned: 1024
+ Groups in featureTable: 392 groups that have outcomes: 0
+
+= phq9 =
+--------
+   this outcome has less groups. Shrunk groups to 0 total.
+  (feature group: 0)
+   [Test size: 0 ]
+[PREDICT] applying *existing* standard scaler to X[0]: StandardScaler()
+Traceback (most recent call last):
+  File "/chronos_data/ssubrahmanya/personallm/dlatk/dlatkInterface.py", line 2262, in <module>
+    main()
+  File "/chronos_data/ssubrahmanya/personallm/dlatk/dlatkInterface.py", line 1944, in main
+    rp.predictToFeatureTable(sparse = args.sparse, fe = fe, name = args.predictrtofeats, standardize = args.standardize, groupsWhere = args.groupswhere)
+  File "/chronos_data/ssubrahmanya/personallm/dlatk/dlatk/regressionPredictor.py", line 1776, in predictToFeatureTable
+    chunkPredictions = self.predict(standardize, sparse, chunk)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/chronos_data/ssubrahmanya/personallm/dlatk/dlatk/regressionPredictor.py", line 1505, in predict
+    ypred = self._multiXpredict(self.regressionModels[outcomeName], multiXtest, \
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/chronos_data/ssubrahmanya/personallm/dlatk/dlatk/regressionPredictor.py", line 2364, in _multiXpredict
+    X = scaler.transform(X)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/chronos_data/ssubrahmanya/personallm/.venv/lib/python3.12/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/chronos_data/ssubrahmanya/personallm/.venv/lib/python3.12/site-packages/sklearn/preprocessing/_data.py", line 1094, in transform
+    X = validate_data(
+        ^^^^^^^^^^^^^^
+  File "/chronos_data/ssubrahmanya/personallm/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py", line 2902, in validate_data
+    out = check_array(X, input_name="X", **check_params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/chronos_data/ssubrahmanya/personallm/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py", line 1097, in check_array
+    raise ValueError(
+ValueError: Found array with 0 sample(s) (shape=(0, 1024)) while a minimum of 1 is required by StandardScaler.
+Traceback (most recent call last):
+  File "/chronos_data/ssubrahmanya/personallm/commands/training.py", line 128, in <module>
+    run(
+  File "/chronos_data/ssubrahmanya/personallm/commands/training.py", line 37, in run
+    subprocess.run(
+  File "/home/ssubrahmanya/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['.venv/bin/python3', 'dlatk/dlatkInterface.py', '-d', 'ssubrahmanya', '-t', 'responses_phq9', '-c', 'message_id', '-f', 'feat$roberta_la_meL23con$responses_phq9$message_id', '--outcome_table', 'responses_phq9', '--outcomes', 'phq9', '--group_freq_thresh', '0', '--predict_regression_to_feats', 'phq9_pred', '--load', '--picklefile', PosixPath('results/genText_phq9_roberta_la_L23_ridge1000.pkl')]' returned non-zero exit status 1.
