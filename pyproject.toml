@@ -33,4 +33,5 @@ dependencies = [
     "transformers==4.44.2",
     "huggingface-hub==0.34.5",
     "simplejson>=4.1.1",
+    "python-docx>=1.2.0",
 ]
