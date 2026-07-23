@@ -1,21 +1,3 @@
-"""Open-ended (freeform) structured prompts for the three scales.
-
-Unlike `prompts/prompt_bkp.py` (the original "structured" template), this
-version does not walk the model through a per-item phrase-generation step and
-does not instruct it to scale phrase count/severity to each item's score. It
-is handed the same `item_scores` input and asked to write a natural
-first-person answer using its own judgment about what to mention, how much
-detail to give, and how to phrase it -- including omitting items entirely, the
-way a real respondent often does.
-
-The only constraint kept is a guardrail against inventing content: the model
-must not describe symptoms, or severity levels, that aren't implied by the
-given `item_scores` (e.g. no mention of an item scored 0). Any remaining gap
-between this text and real human text -- including which items get dropped or
-how severity is worded -- is then attributable to the model's own generation
-prior rather than to the scaffold's demand characteristics.
-"""
-
 PHQ9 = (
     "Your task is to write a response to a question, "
     "as if you were a person whose PHQ-9 item scores are given. "
@@ -54,23 +36,24 @@ PHQ9 = (
     "and 'question' is the text you must answer."
     "\n\n"
 
-    "Write a single first-person paragraph answering the 'question', as this person "
-    "would naturally describe how they've been. Use your own judgment about which "
-    "of the 9 items to mention, how much detail to give each, and how to phrase them "
-    "-- you do not need to mention every item, and real people often describe only "
-    "some of what they experience, or describe it indirectly rather than naming it "
-    "outright. Do not invent symptoms, severity, or details that are not implied by "
-    "the given 'item_scores' (e.g., do not describe an item scored 0, and do not "
-    "portray an item as more or less severe than its score indicates). Do not mention "
-    "the PHQ-9, item names, numbers, or any clinical terms. Do not add disclaimers."
+    "Please follow these steps:\n"
+    "STEP 1: For each entry in 'item_scores' with a non-zero 'score', think of one or "
+    "more short phrases that a person with that 'item' might naturally say. The phrasing "
+    "can mention the symptom directly or describe it indirectly (e.g., \"I don't see the "
+    "point of getting out of bed\" can mean lack of interest). The phrasing should reflect "
+    "the 'score': higher scores warrant more phrases and more severe wording (e.g., score "
+    "1 -> \"a bit tired\"; score 3 -> \"completely exhausted every day\"). Skip entries "
+    "whose 'score' is 0.\n"
+    "STEP 2: Using the phrases from STEP 1 write a single first-person paragraph that "
+    "answers the 'question'. Do not mention the PHQ-9, item names, numbers, or any clinical "
+    "terms. Do not add disclaimers."
     "\n\n"
 
-    "Format your output as a JSON with two fields: 'reason' briefly noting which "
-    "items you chose to mention or leave out and why, and 'text-response' containing "
-    "the final first-person paragraph. Elements inside angle brackets are placeholders "
-    "for the actual values:\n"
+    "Format your output as a JSON with two fields: 'reason' summarizing the phrases you "
+    "chose per non-zero 'item' (STEP 1), and 'text-response' containing the final paragraph "
+    "from STEP 2. Elements inside angle brackets are placeholders for the actual values:\n"
     "{{\n"
-    "    \"reason\": \"<short explanation of which items were mentioned/omitted and why>\",\n"
+    "    \"reason\": \"<short explanation of the chosen phrases per item>\",\n"
     "    \"text-response\": \"<single first-person paragraph>\"\n"
     "}}\n\n"
 
@@ -111,23 +94,24 @@ GAD7 = (
     "and 'question' is the text you must answer."
     "\n\n"
 
-    "Write a single first-person paragraph answering the 'question', as this person "
-    "would naturally describe how they've been. Use your own judgment about which "
-    "of the 7 items to mention, how much detail to give each, and how to phrase them "
-    "-- you do not need to mention every item, and real people often describe only "
-    "some of what they experience, or describe it indirectly rather than naming it "
-    "outright. Do not invent symptoms, severity, or details that are not implied by "
-    "the given 'item_scores' (e.g., do not describe an item scored 0, and do not "
-    "portray an item as more or less severe than its score indicates). Do not mention "
-    "the GAD-7, item names, numbers, or any clinical terms. Do not add disclaimers."
+    "Please follow these steps:\n"
+    "STEP 1: For each entry in 'item_scores' with a non-zero 'score', think of one or "
+    "more short phrases that a person with that 'item' might naturally say. The phrasing "
+    "can mention the symptom directly or describe it indirectly (e.g., \"my mind won't "
+    "stop racing\" can mean uncontrollable worry). The phrasing should reflect the "
+    "'score': higher scores warrant more phrases and more severe wording (e.g., score "
+    "1 -> \"a little on edge\"; score 3 -> \"constantly panicking about everything\"). "
+    "Skip entries whose 'score' is 0.\n"
+    "STEP 2: Using the phrases from STEP 1 write a single first-person paragraph that "
+    "answers the 'question'. Do not mention the GAD-7, item names, numbers, or any clinical "
+    "terms. Do not add disclaimers."
     "\n\n"
 
-    "Format your output as a JSON with two fields: 'reason' briefly noting which "
-    "items you chose to mention or leave out and why, and 'text-response' containing "
-    "the final first-person paragraph. Elements inside angle brackets are placeholders "
-    "for the actual values:\n"
+    "Format your output as a JSON with two fields: 'reason' summarizing the phrases you "
+    "chose per non-zero 'item' (STEP 1), and 'text-response' containing the final paragraph "
+    "from STEP 2. Elements inside angle brackets are placeholders for the actual values:\n"
     "{{\n"
-    "    \"reason\": \"<short explanation of which items were mentioned/omitted and why>\",\n"
+    "    \"reason\": \"<short explanation of the chosen phrases per item>\",\n"
     "    \"text-response\": \"<single first-person paragraph>\"\n"
     "}}\n\n"
 
@@ -174,26 +158,25 @@ PSS10 = (
     "and 'question' is the text you must answer."
     "\n\n"
 
-    "Write a single first-person paragraph answering the 'question', as this person "
-    "would naturally describe how they've been. Use your own judgment about which "
-    "of the 10 items to mention, how much detail to give each, and how to phrase them "
-    "-- you do not need to mention every item, and real people often describe only "
-    "some of what they experience, or describe it indirectly rather than naming it "
-    "outright. Remember that for the four reverse-scored items a LOWER raw score means "
-    "MORE stress (e.g., a low score on 'Confidence in Coping' implies low confidence, "
-    "not high). Do not invent symptoms, severity, or details that are not implied by "
-    "the given 'item_scores' (e.g., do not describe an item whose score implies no "
-    "stress signal, and do not portray an item as more or less severe than its score "
-    "indicates). Do not mention the PSS-10, item names, numbers, or any clinical terms. "
-    "Do not add disclaimers."
+    "Please follow these steps:\n"
+    "STEP 1: For each entry in 'item_scores' think of one or more short phrases that a "
+    "person with that experience might naturally say. For non-reverse items, treat a "
+    "higher 'score' as more stress (e.g., score 1 -> \"a little overwhelmed sometimes\"; "
+    "score 4 -> \"constantly drowning in stress\"). For reverse-scored items, treat a "
+    "LOWER 'score' as more stress (e.g., score 0 on 'Confidence in Coping' -> \"I never "
+    "feel like I can handle anything\"; score 4 -> \"I feel pretty in control of my "
+    "problems\"). Skip items whose score does not reflect any stress signal in either "
+    "direction (e.g., score 0 on a non-reverse item, or score 4 on a reverse item).\n"
+    "STEP 2: Using the phrases from STEP 1 write a single first-person paragraph that "
+    "answers the 'question'. Do not mention the PSS-10, item names, numbers, or any clinical "
+    "terms. Do not add disclaimers."
     "\n\n"
 
-    "Format your output as a JSON with two fields: 'reason' briefly noting which "
-    "items you chose to mention or leave out and why, and 'text-response' containing "
-    "the final first-person paragraph. Elements inside angle brackets are placeholders "
-    "for the actual values:\n"
+    "Format your output as a JSON with two fields: 'reason' summarizing the phrases you "
+    "chose per item (STEP 1), and 'text-response' containing the final paragraph "
+    "from STEP 2. Elements inside angle brackets are placeholders for the actual values:\n"
     "{{\n"
-    "    \"reason\": \"<short explanation of which items were mentioned/omitted and why>\",\n"
+    "    \"reason\": \"<short explanation of the chosen phrases per item>\",\n"
     "    \"text-response\": \"<single first-person paragraph>\"\n"
     "}}\n\n"
 
